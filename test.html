@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deccan Club of Ireland</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3e72;  /* Deep blue representing Ireland */
+            --secondary-color: #e43d30;  /* Warm red from Indian flag */
+            --accent-color: #ff9933;    /* Saffron from Indian flag */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --immigration-color: #3498db;
+            --overlay-color: rgba(26, 62, 114, 0.85);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: 
+                linear-gradient(to bottom, var(--overlay-color), var(--overlay-color)),
+                url('Hyderabadskyline.jpg.jpg') center/cover no-repeat;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+        }
+        
+        .logo-img {
+            height: 120px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            color: var(--accent-color);
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+        
+    
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .immigration-section {
+            border-top: 4px solid var(--immigration-color);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .immigration-section h2 {
+            border-bottom: 2px solid var(--immigration-color);
+        }
+        
+        .section ul {
+            list-style: none;
+        }
+        
+        .section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .section ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .immigration-section ul li a:hover {
+            color: var(--immigration-color);
+        }
+        
+        .section ul li a i {
+            margin-right: 0.5rem;
+        }
+        
+        .immigration-section ul li a i {
+            color: var(--immigration-color);
+        }
+
+        /* Prayer Timetable Styles */
+        .prayer-container {
+            background-color: white;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .location, .date, .next-prayer {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .date {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .prayer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prayer-table th, .prayer-table td {
+            padding: 0.8rem;
+            text-align: center;
+        }
+        
+        .prayer-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .prayer-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .next-prayer {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            padding: 0.8rem;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-top: 1rem;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+        }
+        
+        .contact-form button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background-color: #c23327;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-icons {
+            margin: 1rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                min-height: 50vh;
+                padding: 1.5rem 1rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-text {
+                font-size: 2rem;
+            }
+            
+            .logo-text span {
+                font-size: 1.6rem;
+            }
+            
+            .logo-img {
+                height: 100px;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+                max-width: 90%;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.3rem 0;
+            }
+            
+            .sections {
+                grid-template-columns: 1fr;
+            }
+            
+            .prayer-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="ABC.png" alt="Deccan Club of Ireland Logo" class="logo-img">
+                <div class="logo-text">
+                    DECCAN CLUB
+                    <span>IRELAND</span>
+                </div>
+            </div>
+            <p class="tagline"></p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#immigration">Immigration</a></li>
+            <li><a href="#prayer-timetable">Prayer Times</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#membership">Membership</a></li>
+        </ul>
+    </nav>
+
+
+
+   
+
+        <!-- Prayer Timetable Section -->
+        <section class="section" id="prayer-timetable">
+            <h2>Prayer Timetable</h2>
+            <div class="prayer-container">
+                <div class="location">Location: Dublin, Ireland</div>
+                <div class="date" id="todayDate">Loading date...</div>
+                <div class="date" id="hijriDate">7 Dhu-Al-Qidah 1446</div>
+                <table class="prayer-table" id="prayerTable">
+                    <tr><th>Prayer</th><th>Adhan Time</th><th></th></tr>
+                    <tr><td>Fajr</td><td id="FajrAdhan">-</td><td id="FajrIqamah">-</td></tr>
+                    <tr><td>Dhuhr</td><td id="DhuhrAdhan">-</td><td id="DhuhrIqamah">-</td></tr>
+                    <tr><td>Asr</td><td id="AsrAdhan">-</td><td id="AsrIqamah">-</td></tr>
+                    <tr><td>Maghrib</td><td id="MaghribAdhan">-</td><td id="MaghribIqamah">-</td></tr>
+                    <tr><td>Isha</td><td id="IshaAdhan">-</td><td id="IshaIqamah">-</td></tr>
+                </table>
+                <div class="next-prayer" id="nextPrayer">Loading prayer times...</div>
+            </div>
+        </section>
+
+        <!-- Quick Links Sections -->
+        <div class="sections">
+            <section class="section">
+                <h2>Lit Us</h2>
+                <ul>
+                    <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
+                    <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="#iridiumic"><i class="fas fa-star"></i> Iridiumic</a></li>
+
+                     <div class="container">
+        <section class="section" id="mission">
+            <h2>Our Mission</h2>
+            <p>Deccan Club Ireland is dedicated to creating a welcoming and culturally enriching environment for everyone. We host cultural events, educational programs, and community outreach initiatives that celebrate heritage and unity.</p>
+        </section>
+
+         <div class="container">
+        <section class="section" id="events">
+            <h2>Events</h2>
+            <p>Deccan Club Ireland is dedicated to creating a welcoming and culturally enriching environment for everyone. We host cultural events, educational programs, and community outreach initiatives that celebrate heritage and unity.</p>
+        </section>
+
+         <div class="container">
+        <!-- About Us Section -->
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <p>Deccan Club Ireland is dedicated to creating a welcoming and culturally enriching environment for everyone. We host cultural events, educational programs, and community outreach initiatives that celebrate heritage and unity.</p>
+        </section>
+                </ul>
+            </section>
+
+            
+            <section class="section immigration-section" id="immigration">
+                <h2>Irish Immigration</h2>
+                <ul>
+                    <li><a href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/"><i class="fas fa-briefcase"></i> Work Permits</a></li>
+                    <li><a href="https://www.irishimmigration.ie/how-to-become-a-citizen/become-an-irish-citizen-by-naturalisation/"><i class="fas fa-id-card"></i> Citizenship</a></li>
+                    <li><a href="https://www.irishimmigration.ie/coming-to-join-family-in-ireland/"><i class="fas fa-users"></i> Family Reunification</a></li>
+                    <li><a href="https://www.irishimmigration.ie/coming-to-study-in-ireland/"><i class="fas fa-graduation-cap"></i> Student Visas</a></li>
+                    <li><a href="https://www.irishimmigration.ie/" target="_blank"><i class="fas fa-globe-europe"></i> Official Immigration Website</a></li>
+
+                      <section class="section">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="https://www.indianembassydublin.gov.in/" target="_blank"><i class="fas fa-flag"></i> Indian Embassy</a></li>
+                    <li><a href="#facebook-group"><i class="fab fa-facebook"></i> Our Facebook Group</a></li>
+                    <li><a href="#facebook-page"><i class="fab fa-facebook"></i> Our Facebook Page</a></li>
+                     <li><a href="#membership-form"><i class="fas fa-file-alt"></i> Membership Form</a></li>
+
+                        <section class="section" id="membership">
+                <h2>Contact</h2>
+                <ul>
+                    <li><a href="https://wa.me/"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="https://instagram.com"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#contact-details"><i class="fas fa-address-book"></i> Contact Details</a></li>  
+                 <li><a href="#login"><i class="fas fa-user"></i> Login and Register</a></li>
+
+                      
+             
+                </ul>
+            </section>
+        </div>
+                </ul>
+            </section>
+                </ul>
+            </section>
+                   
+                </ul>
+            </section>
+            
+
+            </section>
+            
+        
+            
+         
+
+        <!-- Contact Form Section -->
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Deccan Club of Ireland. All Rights Reserved.</p>
+        <p>Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> for the Deccan community</p>
+    </footer>
+
+    <script>
+        // Prayer Timetable Script
+        const timetable = {
+            "1": ["4:03", "13:24", "17:27", "20:55", "22:34"],
+            "2": ["4:00", "13:24", "17:28", "20:57", "22:36"],
+            "3": ["3:58", "13:24", "17:29", "20:58", "22:38"],
+            "4": ["3:55", "13:24", "17:30", "21:00", "22:40"],
+            "5": ["3:53", "13:24", "17:30", "21:02", "22:43"],
+            "6": ["3:51", "13:23", "17:31", "21:04", "22:45"],
+            "7": ["3:48", "13:23", "17:32", "21:06", "22:47"],
+            "8": ["3:46", "13:23", "17:33", "21:07", "22:49"],
+            "9": ["3:44", "13:23", "17:33", "21:09", "22:51"],
+            "10": ["3:41", "13:23", "17:34", "21:11", "22:53"],
+            "11": ["3:39", "13:23", "17:35", "21:13", "22:55"],
+            "12": ["3:37", "13:23", "17:35", "21:14", "22:58"],
+            "13": ["3:35", "13:23", "17:36", "21:16", "23:00"],
+            "14": ["3:33", "13:23", "17:37", "21:18", "23:02"],
+            "15": ["3:30", "13:23", "17:37", "21:19", "23:04"],
+            "16": ["3:28", "13:23", "17:38", "21:21", "23:06"],
+            "17": ["3:26", "13:23", "17:39", "21:23", "23:08"],
+            "18": ["3:24", "13:23", "17:39", "21:24", "23:08"],
+            "19": ["3:22", "13:23", "17:40", "21:26", "23:08"],
+            "20": ["3:20", "13:23", "17:41", "21:27", "23:09"],
+            "21": ["3:18", "13:24", "17:41", "21:29", "23:09"],
+            "22": ["3:16", "13:24", "17:42", "21:31", "23:10"],
+            "23": ["3:15", "13:24", "17:43", "21:32", "23:10"],
+            "24": ["3:13", "13:24", "17:43", "21:34", "23:11"],
+            "25": ["3:11", "13:24", "17:44", "21:35", "23:11"],
+            "26": ["3:09", "13:24", "17:44", "21:37", "23:12"],
+            "27": ["3:08", "13:24", "17:45", "21:38", "23:12"],
+            "28": ["3:06", "13:24", "17:46", "21:39", "23:13"],
+            "29": ["3:04", "13:24", "17:46", "21:41", "23:13"],
+            "30": ["3:03", "13:25", "17:47", "21:42", "23:14"],
+            "31": ["3:01", "13:25", "17:47", "21:43", "23:14"]
+        };
+
+        const iqamahTimes = {
+            "Fajr": "",
+            "Dhuhr": "",
+            "Asr": "",
+            "Maghrib": "",
+            "Isha": ""
+        };
+
+        function updateTimetable() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.getMonth();
+
+            document.getElementById("todayDate").textContent = now.toDateString();
+
+            if (month !== 4 || !timetable[day]) {
+                document.getElementById("nextPrayer").textContent = "Timetable only available for May 2025.";
+                return;
+            }
+
+            const [fajr, dhuhr, asr, maghrib, isha] = timetable[day];
+
+            document.getElementById("FajrAdhan").textContent = fajr;
+            document.getElementById("DhuhrAdhan").textContent = dhuhr;
+            document.getElementById("AsrAdhan").textContent = asr;
+            document.getElementById("MaghribAdhan").textContent = maghrib;
+            document.getElementById("IshaAdhan").textContent = isha;
+
+            document.getElementById("FajrIqamah").textContent = iqamahTimes["Fajr"];
+            document.getElementById("DhuhrIqamah").textContent = iqamahTimes["Dhuhr"];
+            document.getElementById("AsrIqamah").textContent = iqamahTimes["Asr"];
+            document.getElementById("MaghribIqamah").textContent = iqamahTimes["Maghrib"];
+            document.getElementById("IshaIqamah").textContent = iqamahTimes["Isha"];
+
+            updateNextPrayer(fajr, dhuhr, asr, maghrib, isha);
+        }
+
+        function updateNextPrayer(fajr, dhuhr, asr, maghrib, isha) {
+            const now = new Date();
+            const prayers = {
+                "Fajr": fajr,
+                "Dhuhr": dhuhr,
+                "Asr": asr,
+                "Maghrib": maghrib,
+                "Isha": isha
+            };
+
+            for (const [name, time] of Object.entries(prayers)) {
+                const [h, m] = time.split(":").map(Number);
+                const prayerTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), h, m);
+                if (now < prayerTime) {
+                    const diff = Math.floor((prayerTime - now) / 1000);
+                    const hours = Math.floor(diff / 3600);
+                    const minutes = Math.floor((diff % 3600) / 60);
+                    const seconds = diff % 60;
+                    const pad = n => n.toString().padStart(2, '0');
+                    document.getElementById("nextPrayer").textContent = `Next prayer: ${name} in ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+                    return;
+                }
+            }
+
+            document.getElementById("nextPrayer").textContent = "Next prayer: Fajr tomorrow";
+        }
+
+        updateTimetable();
+        setInterval(updateTimetable, 1000);
+    </script>
+</body>
+</html>
