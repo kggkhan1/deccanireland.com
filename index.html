@@ -42,6 +42,8 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+
+
 body {
     background-color: var(--light-color);
     color: var(--dark-color);
@@ -53,11 +55,103 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+ /* Navbar */
+   /* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3cm;                /* 🔥 fixed height = 1cm */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;            /* no vertical padding */
+    transition: background 0.3s, padding 0.3s;
+    z-index: 1000;
+    background: #1f4b82;
+}
+
+.navbar.scrolled {
+    background: #1f4b82;
+    height: 1cm;                /* keep the strip height */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Logo */
+.navbar .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 3.8cm;           /* vertically center */
+}
+
+/* Nav links */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0;
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 0 12px;            /* only left/right padding */
+    color: #fff;
+    text-decoration: none;
+    line-height: 1cm;           /* 🔥 center links vertically */
+    transition: background 0.3s;
+}
+
+.navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1cm;           /* align with strip height */
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        position: absolute;
+        top: 1cm;               /* drop below strip */
+        left: 0;
+        width: 100%;
+        background: #1f4b82;
+        flex-direction: column;
+        display: none;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li a {
+        padding: 12px;
+        line-height: normal;    /* allow taller links for tapping */
+        border-top: 1px solid #2f5fa0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
 /* ==================== HEADER STYLES ==================== */
 header {
-    background: 
-                url('new dci logo (1).png') center/cover no-repeat;
-    color: white;
+    background: url('') center/cover no-repeat;
+    color: rgb(255, 253, 223);
     padding: 2rem 1rem;
     text-align: center;
     min-height: 80vh;
@@ -66,9 +160,10 @@ header {
     justify-content: center;
     align-items: center;
     position: relative;
-    box-shadow: 0 4px 20px rgba(240, 238, 238, 0.2);
 }
-
+body {
+  background-color: #fffee3;
+}
 .header-container {
     width: 100%;
     max-width: 1200px;
@@ -125,75 +220,6 @@ header {
     width: 100%;
 }
 
-/* Navigation */
-nav {
-    background-color: var(--primary-color);
-    padding: 0.5rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
-    position: relative;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-}
-
-nav ul li a:hover {
-    background-color: var(--accent-color);
-    color: var(--dark-color);
-    transform: translateY(-2px);
-}
-
-/* Dropdown Menu */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 4px;
-    top: 100%;
-    left: 0;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: var(--primary-color);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /* Hero Section */
 .hero {
@@ -1435,47 +1461,29 @@ footer::before {
 <body>
     <!-- ==================== ENHANCED HEADER ==================== -->
     <header>
-        <div class="header-container">
-            <img src="" alt="" class="logo">
-            <h1 class="header-title"> <span></span></h1>
-            <p class="header-tagline"></p>
-        </div>
-    </header>
+<img width="100%" src="new dci logo (4).png" alt="" >
+       </header>
     
     <!-- ==================== REST OF YOUR EXISTING HTML ==================== -->
-    <nav>
-        <div class="container">
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul id="main-nav">
-                <li><a href="#home">Home</a></li>
-                <li class="dropdown">
-                    <a href="#about">About Us <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#mission">Mission & Vision</a>
-                        <a href="#overview">Organizational Overview</a>
-                        <a href="#leadership">Leadership Team</a>
-                    </div>
-                </li>
-                
-                <li><a href="#events">Events</a></li>
-                <li><a href="#prayer-timetable">Prayer Times</a></li>
-                <li><a href="#immigration">Immigration</a></li>
-                <li class="dropdown">
-  <a href="education.html" class="dropbtn">📚 Education</a>
-  <div class="dropdown-content">
-   <!-- Primary & Secondary -->
-    <div class="dropdown-box">
-    
- 
-               
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="magazines.html">Magazines</a></li>
-                <li><a href="test.html">Ayah of the Day</a></li>
-            </ul>
-        </div>
-    </nav>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo">Deccan Club Of Ireland</a>
+    <img src="" alt="">
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#prayer timetable">Prayer Times</a></li>
+      <li><a href="#">Immigration</a></li>
+      <li><a href="education.html">Education</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="magazines.html">Magazines</a></li>
+      <li><a href="test.html">Ayah of the Day</a></li>
+    </ul>
+  </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -2244,6 +2252,21 @@ External links may appear on our site. DCI is not responsible for the privacy pr
                 });
             });
         });
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+
+    // Scroll effect
+    window.addEventListener("scroll", function() {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
     </script>
 
     <!-- ==================== FOOTER ==================== -->
@@ -2292,7 +2315,7 @@ External links may appear on our site. DCI is not responsible for the privacy pr
                 <h3>Contact Us</h3>
                 <div class="footer-contact-item">
                     <div class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>123 O'Connell Street, Dublin 1, Ireland</div>
+                    <div>Blanchardstown D15</div>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
@@ -2321,3 +2344,6 @@ External links may appear on our site. DCI is not responsible for the privacy pr
     </footer>
 </body>
 </html>
+
+
+
